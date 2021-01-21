@@ -42,7 +42,7 @@ namespace Spreadsheet_Analysis_Software
         {
             if (Properties.Settings.Default.default_directory != "no_dir")
             {
-                string filename = Properties.Settings.Default.default_directory + "/" + DateTime.Now.Month + " " + DateTime.Now.Day + " " + DateTime.Now.Year + "_Report.xlsx";
+                string filename = Properties.Settings.Default.default_directory + "/" + DateTime.Now.Month + " " + DateTime.Now.Day + " " + DateTime.Now.Year + "-" + DateTime.Now.Hour + " " + DateTime.Now.Minute + " "+  DateTime.Now.Second+ "_Report.xlsx";
 
                 //MessageBox.Show(filename);
 
@@ -62,7 +62,7 @@ namespace Spreadsheet_Analysis_Software
                     {
                         //MessageBox.Show("i, j: " + i + "," + j);
                         xlWorksheet.Cells[i + 1, j + 1] = resizedWorksheet[i, j];
-
+                        
                         if (resizedWorksheet[i, j] == "Title")
                         {
                             titleColumn = j;
@@ -79,7 +79,8 @@ namespace Spreadsheet_Analysis_Software
                     }
                 }
 
-                
+                Excel.Range xlRange = xlWorksheet.UsedRange;
+                xlRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
                 //Analyse Data
                 int meals_served = rows;
@@ -182,9 +183,16 @@ namespace Spreadsheet_Analysis_Software
                 xlWorksheet.Cells[7, 15] = days;
                 xlWorksheet.Cells[8, 15] = meals_served;
 
+                Excel.Range xlRange2 = xlWorksheet.Range["I2", "M6"];
+                xlRange2.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                xlRange2 = xlWorksheet.Range["N7", "O8"];
+                xlRange2.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
                 try
                 {
                     xlWorkbook.SaveAs(filename);
+                    MessageBox.Show("Spreadsheet Sucessfully Exported");
                 }
                 catch
                 {
@@ -220,8 +228,14 @@ namespace Spreadsheet_Analysis_Software
             {
                 for (int curRow = 1; curRow <= rows + 1; curRow++)
                 {
-                    worksheet[curRow - 1, curCol - 1] = xlRange.Cells[curRow, curCol].Value2.ToString() + "";
-                    //MessageBox.Show((curCol - 1 ) + " , " + (curRow - 1) + "   " +  worksheet[curRow - 1, curCol - 1]);
+                    try
+                    {
+                        worksheet[curRow - 1, curCol - 1] = xlRange.Cells[curRow, curCol].Value2.ToString() + "";
+                    } //MessageBox.Show((curCol - 1 ) + " , " + (curRow - 1) + "   " +  worksheet[curRow - 1, curCol - 1]);
+                    catch
+                    {
+                        worksheet[curRow - 1, curCol - 1] = "";
+                    }
                 }
             }
 
