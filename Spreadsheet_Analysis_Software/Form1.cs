@@ -28,6 +28,7 @@ namespace Spreadsheet_Analysis_Software
         {
             OpenFileDialog ofd = new OpenFileDialog() { Filter = "Spreadsheet (*.xls)|*.xls| Spreadsheet (*.xlsx)|*.xlsx" };
             
+            //Import Spreadsheet
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 spreadsheet_dir_textbox.Text = ofd.FileName;
@@ -51,6 +52,7 @@ namespace Spreadsheet_Analysis_Software
 
                 Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
 
+                //Write array to spreadsheet
                 int titleColumn = 0;
                 int sessionColumn = 0;
                 int checkInColumn = 0;
@@ -85,6 +87,7 @@ namespace Spreadsheet_Analysis_Software
                 int[] lunch = new int[3];
                 int[] snack = new int[3];
 
+                //counts the number of paid, reduced and free snacks, lunches and breakfasts
                 for (int i = 0; i <= rows; i++)
                 {
                     if (resizedWorksheet[i, titleColumn].ToLower() == "paid" && resizedWorksheet[i, sessionColumn].ToLower() == "breakfast session")
@@ -125,6 +128,7 @@ namespace Spreadsheet_Analysis_Software
                     }
                 }
 
+                //count the number of individual days
                 int days = -1;
                 for (int i = 0; i <= rows; i++)
                 {
@@ -142,7 +146,7 @@ namespace Spreadsheet_Analysis_Software
                     }
                 }
 
-
+                //Adding in the final tables
                 xlWorksheet.Cells[3, 9] = "Breakfast"; 
                 xlWorksheet.Cells[4, 9] = "Lunch"; 
                 xlWorksheet.Cells[5, 9] = "Snacks"; 
@@ -227,6 +231,7 @@ namespace Spreadsheet_Analysis_Software
             int numberOfColumnsFound = 0;
             resizedWorksheet = new string[rows + 1, 7];
 
+            //Generates a small array to reduce space
             for (int i = 0; i < columns; i++)
             {
                 if (worksheet[0, i] == "Last Name" || worksheet[0, i] == "First Name" || worksheet[0, i] == "Title" || worksheet[0, i] == "Badge Number" || worksheet[0, i] == "Session ID"
@@ -244,6 +249,7 @@ namespace Spreadsheet_Analysis_Software
 
         private void set_export_button_Click(object sender, EventArgs e)
         {
+            //Sets export folder
             FolderBrowserDialog fbd = new FolderBrowserDialog();
 
             if (fbd.ShowDialog() == DialogResult.OK)
