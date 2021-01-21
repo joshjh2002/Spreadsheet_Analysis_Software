@@ -34,13 +34,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E481815562082E75103E7042869D5D66"
+        "OwnerKey" = "8:_38CC3CC7729C463BBF43AD4A6595B3CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_38CC3CC7729C463BBF43AD4A6595B3CF"
+        "OwnerKey" = "8:_E481815562082E75103E7042869D5D66"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -61,6 +61,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -77,6 +85,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -183,6 +199,17 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_3C718836B1EE48AE94DBCB5152948B84"
+                    {
+                    "Name" = "8:MSS Software"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_722EC11541AD427687B2957F42CC738B"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D951271BF84347CB801E15C8C4836E01"
@@ -214,7 +241,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{5E8712E2-B785-430E-BA72-FDA0610D3D06}"
-        "PackageCode" = "8:{003A9A29-E165-4B30-BB2D-5DAAB0586B01}"
+        "PackageCode" = "8:{2EF444AF-857D-4AFA-A4B9-D6CD59B56472}"
         "UpgradeCode" = "8:{CCD350B0-6AA9-40A4-A460-E30E2D0900F1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -346,6 +373,20 @@
             "Folder" = "8:_56896B4572BD4BFBB8AD3C4AD42F75D2"
             "WorkingFolder" = "8:_D951271BF84347CB801E15C8C4836E01"
             "Icon" = "8:_B99E9188258D46E3A31173ED33576A58"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E05585212BD0452B9A271AB82AAD3985"
+            {
+            "Name" = "8:Spreadsheet Analysis Software"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_38CC3CC7729C463BBF43AD4A6595B3CF"
+            "Folder" = "8:_3C718836B1EE48AE94DBCB5152948B84"
+            "WorkingFolder" = "8:_D951271BF84347CB801E15C8C4836E01"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
